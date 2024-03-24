@@ -1,0 +1,11 @@
+#!/usr/bin/env bash 
+
+ORG="$1" 
+TMP=${ORG::-4} 
+OFL="$TMP.o"  
+
+nasm -felf64 $ORG 
+ld -o $TMP "$TMP.o"
+
+rm *o 
+echo executable has been build
